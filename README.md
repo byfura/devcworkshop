@@ -1,2 +1,2 @@
 # devcworkshop
-Dev C Workshop
+Dev C Workshop 2.0
