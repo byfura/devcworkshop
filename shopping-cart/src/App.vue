@@ -10,6 +10,7 @@
         <div class="column">
           <h1>Shopping Cart</h1>
           <ShoppingCart />
+          <h3>{{total | currency("Rp ")}}</h3>
         </div>
       </div>
     </div>
@@ -21,16 +22,19 @@
   // import Product from './components/Product.vue'
   import ProductList from './components/ProductList.vue'
   import ShoppingCart from './components/ShoppingCart.vue'
+  import {Store} from './store/store.js'
 
   export default {
     name: 'app',
-    data: {
-      name : 'Lolita'
-    },
     components: {
       Navbar,
       ProductList,
       ShoppingCart
+    },
+    computed: {
+      total(){
+        return Store.total
+      }
     }
   }
 </script>

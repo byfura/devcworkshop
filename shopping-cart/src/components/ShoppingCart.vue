@@ -13,6 +13,7 @@
 				<td>{{product.details.name}}</td>
 				<td>{{product.details.price | currency("Rp ")}}</td>
 				<td>{{product.quantity}}</td>
+				<td><button class="button is-danger" @click="decrease(product)">-</button></td>
 			</tr>			
 		</tbody>
 	</table>
@@ -25,6 +26,11 @@
 		computed: {
 			cart() {
 				return Store.$data.cart
+			}
+		},
+		methods: {
+			decrease(product) {
+				Store.decreaseCart(product)
 			}
 		}
 

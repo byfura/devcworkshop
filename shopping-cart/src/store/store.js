@@ -8,6 +8,11 @@ export const Store = new Vue({
 			cart : []
 		}
 	},
+	computed : {
+		total() {
+			return this.cart.reduce((accumulator,product) => accumulator + product.details.price * product.quantity)
+		}
+	},
 	methods : {
 		addToCart(product) {
 
@@ -21,6 +26,13 @@ export const Store = new Vue({
 			} else {
 				this.cart[index].quantity++
 			}
+		},
+		decreaseCart(product) {
+			product.quantity--
+			if (product.quantity <= 0) {
+				this.cart.splice(product.id,1)
+			}
 		}
+
 	}
 })
